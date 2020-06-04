@@ -30,14 +30,16 @@ An optimization SpTRSV algorithm based on 6_our2Part2, which has better performa
 
 An integrated algorithm with SyncFree and ourWrtFst for all sparse matrices.
 
+<br><hr>
 <h3>Execution</h3>
 
 1. Adjust the common.h file according to the GPU hardware and the accuracy of the calculation (single or double precision),
 2. Set CUDA path in the Makefile,
 3. Run ``make``,
 4. Run ``./main example.mtx``. (kernel is in the spts_ .h)
-5. The result is saved in result.csv as ``matrix path, row number, the number of total nonzero elements,the average number of nonzero elements per row, level number,the average number of rows per level, pre_time, solve_time, gflops, bandwith``.
+5. The result is saved in result.csv as ``matrix path, row number, the number of total nonzero elements, the average number of nonzero elements per row, level number, the average number of rows per level, pre_time, solve_time, gflops, bandwith``.
 
+<br><hr>
 <h3>Tested environments</h3>
 
 1. nvidia GTX 1080 (Pascal) GPU in a host with CUDA v8.0 and Ubuntu 16.04.4 Linux installed.
