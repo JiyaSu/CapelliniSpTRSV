@@ -7,6 +7,8 @@ This is the source code of a paper entitled "CapelliniSpTRSV: A Thread-Level Syn
 
 The 6 algorithms in this project are execute on CUDA version. Among them, 2_SyncFree_csc2, 3_cuSP2 and 4_cuSP-layer2 are already proposed algorithms, which are used as benchmark algorithms. The other three algorithms are our proposed algorithms. 8_mix2 has the best performance, but has a short preprocessing time. 7_ourWrtFst2 has better performance than 6_our2Part2, and there is no preprocessing time for both algorithms.
 
+We will continue to improve this project to make CapelliniSpTRSV easier to use.
+
 <br><hr>
 <h3>Algorithms Introduction</h3>
 
