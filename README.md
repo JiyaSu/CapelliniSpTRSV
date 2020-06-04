@@ -35,8 +35,8 @@ An integrated algorithm with SyncFree and ourWrtFst for all sparse matrices.
 1. Adjust the common.h file according to the GPU hardware and the accuracy of the calculation (single or double precision),
 2. Set CUDA path in the Makefile,
 3. Run ``make``,
-4. Run ``./main example.mtx``. 
-(kernel is in the spts_ .h)
+4. Run ``./main example.mtx``. (kernel is in the spts_ .h)
+5. The result is saved in result.csv as ``matrix path, row number, the number of total nonzero elements,the average number of nonzero elements per row, level number,the average number of rows per level, pre_time, solve_time, gflops, bandwith``.
 
 <h3>Tested environments</h3>
 
