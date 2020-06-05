@@ -26,7 +26,7 @@
 #endif
 
 #ifndef WARP_PER_BLOCK
-#define WARP_PER_BLOCK  16
+#define WARP_PER_BLOCK  32
 #endif
 
 #ifndef MAX_BLOCK
