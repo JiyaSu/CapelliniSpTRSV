@@ -5,7 +5,7 @@ A Thread-Level Synchronization-Free Sparse Triangular Solve on GPUs
 
 This is the source code of a paper entitled "CapelliniSpTRSV: A Thread-Level Synchronization-Free Sparse Triangular Solve on GPUs" by Jiya Su, Feng Zhang, Weifeng Liu, Bingsheng He, Ruofan Wu, Xiaoyong Du, Rujia Wang, 2020.
 
-The 6 algorithms in this project are execute on CUDA version. Among them, 2_SyncFree_csc2, 3_cuSP2 and 4_cuSP-layer2 are already proposed algorithms, which are used as benchmark algorithms. The other three algorithms are our proposed algorithms. 8_mix2 has the best performance, but has a short preprocessing time. 7_ourWrtFst2 has better performance than 6_our2Part2, and there is no preprocessing time for both algorithms.
+The 6 algorithms in this project are execute on CUDA version. Among them, SyncFree_csc, cuSP and cuSP-layer are already proposed algorithms, which are used as benchmark algorithms. The other three algorithms are our proposed algorithms. mix has the best performance, but has a short preprocessing time. ourWrtFst has better performance than our2Part, and there is no preprocessing time for both algorithms.
 
 We will continue to improve this project to make CapelliniSpTRSV easier to use.
 
@@ -15,31 +15,32 @@ Sparse triangular solves (SpTRSVs) have been extensively used in linear algebra 
 
 ## Algorithms Introduction
 
-### 2_SyncFree_csc2
+### SyncFree_csc
 
 The source code is download from https://github.com/bhSPARSE/Benchmark_SpTRSM_using_CSC.
 
-### 3_cuSP2 and 4_cuSP-layer2
+### cuSP and cuSP-layer
 
-The code uses the SpTRSV function from the cuSPARSE library. The function has two options CUSPARSE_SOLVE_POLICY_NO_LEVEL and CUSPARSE_SOLVE_POLICY_USE_LEVEL, corresponding to 3_cuSP2 and 4_cuSP-layer2 respectively.
+The code uses the SpTRSV function from the cuSPARSE library. The function has two options CUSPARSE_SOLVE_POLICY_NO_LEVEL and CUSPARSE_SOLVE_POLICY_USE_LEVEL, corresponding to cuSP and cuSP-layer respectively.
 
-### 6_our2Part2
+### our2Part
 
 A novel thread-level synchronization-free SpTRSV algorithm, targeting the sparse matrices that have large number of components per level and small number of nonzero elements per row.
 
-### 7_ourWrtFst2
+### ourWrtFst
 
-An optimization SpTRSV algorithm based on 6_our2Part2, which has better performance and targets the sparse matrices that have large number of components per level and small number of nonzero elements per row.
+An optimization SpTRSV algorithm based on our2Part, which has better performance and targets the sparse matrices that have large number of components per level and small number of nonzero elements per row.
 
-### 8_mix2
+### mix
 
 An integrated algorithm with SyncFree and ourWrtFst for all sparse matrices.
 
 ## Execution
 
-1. Adjust the common.h file according to the GPU hardware and the accuracy of the calculation (single or double precision),
-2. Set CUDA path in the Makefile,
-3. Run ``make``,
+1. Choose the algorithm you want to run, and enter the folder corresponding to the algorithm.
+1. Adjust the common.h file according to the GPU hardware, the repeated times, and the accuracy of the calculation (single or double precision).
+2. Set CUDA path in the Makefile.
+3. Run ``make``.
 4. Run ``./main example.mtx``. (kernel is in the spts_ .h)
 5. The result is saved in result.csv as ``matrix path, row number, the number of total nonzero elements, the average number of nonzero elements per row, level number, the average number of rows per level, pre_time, solve_time, gflops, bandwith``.
 
