@@ -214,7 +214,7 @@ int spts_syncfree_cuda_csr_wrt(const int           *csrRowPtrL_tmp,
     *gflops_add=2*nnzL/(1e6*time_cuda_solve);
     *bandwith_add=dataSize/(1e6*time_cuda_solve);
     
-    if(times==0)
+    if(times!=BENCH_REPEAT)
     {
         printf("cuda syncfree SpTS on L failed!\n");
         *solve_time_add=-1;
