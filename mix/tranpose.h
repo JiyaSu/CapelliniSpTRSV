@@ -1454,7 +1454,7 @@ void matrix_warp4    (const int         m,
             warp_greater++;
             element_warp+=(double)element_n;
             row_warp+=(double)(end-i);
-            for(j=0;j<WARP_SIZE;j++)
+            for(j=0;j<(end-i);j++)
             {
                 row++;
                 warp_num[k]=row;
@@ -1464,13 +1464,13 @@ void matrix_warp4    (const int         m,
         else
         {
             warp_lower++;
-            row += WARP_SIZE;
+            row += (end-i);
             warp_num[k]=row;
             k++;
         }
     }
     
-    int Len=warp_lower+WARP_SIZE*warp_greater+1;
+    int Len=k;
     *Len_add=Len;
     *warp_occupy_add = row_warp/m;
     *element_occupy_add = element_warp/nnz;

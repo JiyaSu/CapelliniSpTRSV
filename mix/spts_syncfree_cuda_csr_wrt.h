@@ -44,7 +44,7 @@ void spts_syncfree_cuda_executor_csr_wrt(const int* __restrict__        d_csrRow
     
     const int lane_id = (WARP_SIZE - 1) & threadIdx.x;
     
-    if(d_warp_num[warp_id+1]==(d_warp_num[warp_id]+WARP_SIZE))
+    if(d_warp_num[warp_id+1]>(d_warp_num[warp_id]+1))
     {
         //thread
         row =d_warp_num[warp_id]+lane_id;
