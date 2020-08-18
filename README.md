@@ -9,6 +9,10 @@ The 6 algorithms in this project are execute on CUDA version. Among them, SyncFr
 
 We will continue to improve this project to make CapelliniSpTRSV easier to use.
 
+Our video introducing CapelliniSpTRSV can be seen on https://www.youtube.com/watch?v=HMNeLWq7D48.
+Our paper can be downloaded from ACM (https://dl.acm.org/doi/abs/10.1145/3404397.3404400).
+Our slide can be downloaded from https://jnamaral.github.io/icpp20/slides/Su_CapelliniSpTRSV.pdf.
+
 ## Abstract
 
 Sparse triangular solves (SpTRSVs) have been extensively used in linear algebra fields, and many GPU SpTRSV algorithms have been proposed. Synchronization-free SpTRSVs, due to their short preprocessing time and high performance, are currently the most popular SpTRSV algorithms. However, we observe that the performance of the current synchronization-free SpTRSV algorithms on different matrices varies greatly. Specifically, we find that when the average number of components per level is high and the average number of nonzero elements per row is low, these SpTRSVs exhibit low performance. The reason is that current SpTRSVs use a warp in GPUs to process a row in sparse matrices, and such warp-level designs increase the dependencies in SpTRSVs; this problem becomes serious in these cases. To solve this problem, we propose CapelliniSpTRSV, a thread-level synchronization-free SpTRSV algorithm. Particularly, CapelliniSpTRSV has three desirable features. First, CapelliniSpTRSV does not need preprocessing to calculate levels. Second, our algorithm exhibits high performance on matrices that previous SpTRSVs cannot handle efficiently. Third, CapelliniSpTRSV is based on the most popular sparse matrix storage, compressed sparse row (CSR) format, which implies that users do not need to conduct format conversion. We evaluate CapelliniSpTRSV with 245 matrices from the Florida Sparse Matrix Collection on three GPU platforms, and experiments show that our SpTRSV exhibits 3.41 GFLOPS/s, which is 5.26x speedup over the state-of-the-art synchronization-free SpTRSV algorithm, and 4.00x speedup over the SpTRSV in cuSPARSE. CapelliniSpTRSV can be downloaded from https://github.com/JiyaSu/CapelliniSpTRSV.
