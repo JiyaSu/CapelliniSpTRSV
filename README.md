@@ -10,7 +10,9 @@ The 6 algorithms in this project are execute on CUDA version. Among them, SyncFr
 We will continue to improve this project to make CapelliniSpTRSV easier to use.
 
 Our video introducing CapelliniSpTRSV can be seen on https://www.youtube.com/watch?v=HMNeLWq7D48.
+
 Our paper can be downloaded from ACM (https://dl.acm.org/doi/abs/10.1145/3404397.3404400).
+
 Our slide can be downloaded from https://jnamaral.github.io/icpp20/slides/Su_CapelliniSpTRSV.pdf.
 
 ## Abstract
@@ -42,17 +44,17 @@ An integrated algorithm with SyncFree and ourWrtFst for all sparse matrices.
 ## Execution
 
 1. Choose the algorithm you want to run, and enter the folder corresponding to the algorithm.
-1. Adjust the common.h file according to the GPU hardware, the repeated times, and the accuracy of the calculation (single or double precision).
-2. Set CUDA path in the Makefile.
-3. Run ``make``.
-4. Run ``./main example.mtx``. (kernel is in the spts_ .h)
-5. The result is saved in result.csv as ``matrix path, row number, the number of total nonzero elements, the average number of nonzero elements per row, level number, the average number of rows per level, pre_time, solve_time, gflops, bandwith``.
+2. Adjust the common.h file according to the GPU hardware, the repeated times, and the accuracy of the calculation (single or double precision).
+3. Set CUDA path in the Makefile.
+4. Run ``make``.
+5. Run ``./main example.mtx``. (kernel is in the spts_ .h)
+6. The result is saved in result.csv as ``matrix path, row number, the number of total nonzero elements, the average number of nonzero elements per row, level number, the average number of rows per level, pre_time, solve_time, gflops, bandwith``.
 
 ## Tested environments
 
 1. nvidia GTX 1080 (Pascal) GPU in a host with CUDA v8.0 and Ubuntu 16.04.4 Linux installed.
-3. nvidia Tesla V100 (Volta) GPU in a host with CUDA v9.0 and Ubuntu 16.04.1 Linux installed.
-1. nvidia GeForce RTX 2080 Ti (Turing) GPU in a host with CUDA v10.2 and Ubuntu 18.04.4 Linux installed.
+2. nvidia Tesla V100 (Volta) GPU in a host with CUDA v9.0 and Ubuntu 16.04.1 Linux installed.
+3. nvidia GeForce RTX 2080 Ti (Turing) GPU in a host with CUDA v10.2 and Ubuntu 18.04.4 Linux installed.
 
 ## Acknowledgement
 
