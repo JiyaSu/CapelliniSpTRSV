@@ -5,7 +5,11 @@ A Thread-Level Synchronization-Free Sparse Triangular Solve on GPUs
 
 This is the source code of a paper entitled "CapelliniSpTRSV: A Thread-Level Synchronization-Free Sparse Triangular Solve on GPUs" by Jiya Su, Feng Zhang, Weifeng Liu, Bingsheng He, Ruofan Wu, Xiaoyong Du, Rujia Wang, 2020.
 
-The 6 algorithms in this project are execute on CUDA version. Among them, SyncFree_csc, cuSP and cuSP-layer are already proposed algorithms, which are used as benchmark algorithms. The other three algorithms are our proposed algorithms. mix has the best performance, but has a short preprocessing time. ourWrtFst has better performance than our2Part, and there is no preprocessing time for both algorithms.
+There are two versions, namely CUDA and openCL.
+
+In CUDA version, we show 6 SpTRSV algorithms.Among them, SyncFree_csc, cuSP and cuSP-layer are already proposed algorithms, which are used as benchmark algorithms. The other three algorithms are our proposed algorithms. mix has the best performance, but has a short preprocessing time. ourWrtFst has better performance than our2Part, and there is no preprocessing time for both algorithms.
+
+In OpenCL version, we only give 4 algorithms. Among them, SyncFree_csc and SyncFree_csc2 are already proposed algorithms, which are used as benchmark algorithms. The other two algorithms are our proposed algorithms. mix has the best performance, but has a short preprocessing time. ourWrtFst does not require preprocessing time.
 
 We will continue to improve this project to make CapelliniSpTRSV easier to use.
 
@@ -24,6 +28,7 @@ Sparse triangular solves (SpTRSVs) have been extensively used in linear algebra 
 ### SyncFree_csc
 
 The source code is download from https://github.com/bhSPARSE/Benchmark_SpTRSM_using_CSC.
+In OpenCL, SyncFree_csc2 removes the division of warp in SyncFree_csc (sptrsv_syncfree_opencl.cl).
 
 ### cuSP and cuSP-layer
 
@@ -52,9 +57,13 @@ An integrated algorithm with SyncFree and ourWrtFst for all sparse matrices.
 
 ## Tested environments
 
+CUDA:
 1. nvidia GTX 1080 (Pascal) GPU in a host with CUDA v8.0 and Ubuntu 16.04.4 Linux installed.
 2. nvidia Tesla V100 (Volta) GPU in a host with CUDA v9.0 and Ubuntu 16.04.1 Linux installed.
 3. nvidia GeForce RTX 2080 Ti (Turing) GPU in a host with CUDA v10.2 and Ubuntu 18.04.4 Linux installed.
+
+OpenCL:
+1. Radeon Vega 11 APU with ROCm compiler and Ubuntu 18.04.3 Linux installed.
 
 ## Acknowledgement
 
@@ -68,7 +77,7 @@ Bingsheng He is with the School of Computing, National University of Singapore.
 
 Rujia Wang is with the Computer Science Department, Illinois Institute of Technology.
 
-If you have any questions, please contact us (Jiya_Su@ruc.edu.cn).
+If you have any questions, please contact us (Jiya_Su@ruc.edu.cn or jsu18@hawk.iit.edu).
 
 ## Citation
 
