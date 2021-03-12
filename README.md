@@ -77,7 +77,7 @@ Bingsheng He is with the School of Computing, National University of Singapore.
 
 Rujia Wang is with the Computer Science Department, Illinois Institute of Technology.
 
-If you have any questions, please contact us (Jiya_Su@ruc.edu.cn or jsu18@hawk.iit.edu).
+If you have any questions, please contact us (jsu18@hawk.iit.edu or Jiya_Su@ruc.edu.cn).
 
 ## Citation
 
